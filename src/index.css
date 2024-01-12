@@ -6,3 +6,32 @@
   font-family: inherit;
 }
 
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #111315;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  
+}
+
+.flex {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+@media screen and (max-width: 524px) {
+  .flex{
+     flex-direction: column;
+     
+  }
+}

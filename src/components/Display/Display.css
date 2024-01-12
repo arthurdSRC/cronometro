@@ -1,0 +1,15 @@
+
+
+
+.display-count{
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    font-size: 5rem;
+}
+
+
+@media screen and (max-width: 524px) {
+    .display-count{
+        font-size: 4rem;
+    }
+}

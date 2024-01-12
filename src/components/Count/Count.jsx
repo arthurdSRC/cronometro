@@ -4,6 +4,8 @@ import { useState, useEffect } from "react"
 
 import "./Count.css"
 import { useRef } from "react"
+import Display from "../Display/Display"
+import ButtonAction from "../ButtonAction/ButtonAction"
 
 
 const Count = () => {
@@ -14,13 +16,11 @@ const Count = () => {
   const hoursRef = useRef(0)
   const interval = useRef()
 
-  const [secondsTime, setSecondsTime] = useState()
-  const [minutesTime, setMinutesTime] = useState()
-  const [hoursTime, setHoursTime] = useState()
+  const [secondsTime, setSecondsTime] = useState(0)
+  const [minutesTime, setMinutesTime] = useState(0)
+  const [hoursTime, setHoursTime] = useState(0)
 
-  const FormatTime = (time) => {
-    return time < 10 ? `0${time}` : time
-  }
+
 
   const start = () => {
     secondsRef.current++
@@ -34,15 +34,14 @@ const Count = () => {
       minutesRef.current = 0;
     }
 
-    setSecondsTime(FormatTime(secondsRef.current))
-    setMinutesTime(FormatTime(minutesRef.current))
-    setHoursTime(FormatTime(hoursRef.current))
+    setSecondsTime(secondsRef.current)
+    setMinutesTime(minutesRef.current)
+    setHoursTime(hoursRef.current)
 
   }
 
   const reset = () => {
     clearInterval(interval.current)
-
 
     secondsRef.current = 0
     minutesRef.current = 0
@@ -51,11 +50,7 @@ const Count = () => {
     setMinutesTime(0)
     setHoursTime(0)
 
-
   }
-
-
-
 
   useEffect(() => {
     if (action === "running") {
@@ -67,18 +62,25 @@ const Count = () => {
     if (action === "reset") {
       reset();
     }
-
   }, [action])
 
 
-  return (
-    <div>
-      {`${hoursTime}:${minutesTime}:${secondsTime}`}
-      <button onClick={() => setAction("running")}>Começar</button>
-      <button onClick={() => setAction("stop")}>Parar</button>
-      <button onClick={() => setAction("reset")}>Parar</button>
 
-    </div>
+  const HandleAction = (state) => {
+    setAction(state)
+  }
+
+  return (
+    <main className="count-container">
+      <Display hours={hoursTime} minutes={minutesTime} seconds={secondsTime} action={action} />
+
+      <div className="flex">
+        <ButtonAction handle={HandleAction} state={"running"}>Começar</ButtonAction>
+        <ButtonAction handle={HandleAction} state={"stop"}>Parar</ButtonAction>
+        <ButtonAction handle={HandleAction} state={"reset"}>Reiniciar</ButtonAction>
+      </div>
+      
+    </main>
   )
 
 
