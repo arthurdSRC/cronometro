@@ -1,6 +1,6 @@
 <img src="public/cronometro.PNG">
 
-# Cronometro 
+# Cronômetro 
 
 ### Descrição: Um cronômetro simples que exibe o tempo decorrido em segundos, minutos e horas.
 
