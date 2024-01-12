@@ -2,7 +2,7 @@
 
 # Cronometro 
 
-### Descrição: Criar um cronômetro simples que exibe o tempodecorrido em segundos, minutos e horas.
+### Descrição: Um cronômetro simples que exibe o tempo decorrido em segundos, minutos e horas.
 
 ### 📦 Tecnologias usadas:
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
